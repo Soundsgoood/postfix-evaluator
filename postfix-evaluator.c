@@ -32,6 +32,7 @@ int main()
 	printf("%d\n", evaluatePostfixExpression(postfixExpression));
 }
 
+//returns the result of the postfix expression
 int evaluatePostfixExpression(char *expr)
 {
 	StackNodePtr stackPtr = NULL;
@@ -79,6 +80,7 @@ int evaluatePostfixExpression(char *expr)
 	}
 }
 
+//calculates the result of a binary operation
 int calculate(int op1, int op2, char operator)
 {
 	if (operator == '+')
@@ -112,6 +114,7 @@ int calculate(int op1, int op2, char operator)
 	}
 }
 
+//puts an integer on the stack used for this postfix evaluator
 void push(StackNodePtr *topPtr, int info)
 {
 	StackNodePtr newPtr = malloc(sizeof(StackNode));
@@ -128,6 +131,7 @@ void push(StackNodePtr *topPtr, int info)
 	}
 }
 
+//pops an integer from the stack used for this postfix evaluator
 int pop(StackNodePtr *topPtr)
 {
 	StackNodePtr tempPtr = *topPtr;
@@ -137,11 +141,13 @@ int pop(StackNodePtr *topPtr)
 	return popValue;
 }
 
+//returns true if the stack used for this postfix evaluator is empty
 int isEmpty(StackNodePtr topPtr)
 {
 	return (topPtr == NULL);
 }
 
+//prints the contents of the stack in order from the value at the given pointer to the bottom of its stack
 void printStack(StackNodePtr currentPtr)
 {
 	if (currentPtr == NULL)
